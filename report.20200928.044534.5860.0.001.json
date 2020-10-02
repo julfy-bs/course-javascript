@@ -1,0 +1,470 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200928.044534.5860.0.001.json",
+    "dumpEventTime": "2020-09-28T04:45:34Z",
+    "dumpEventTimeStamp": "1601257534108",
+    "processId": 5860,
+    "cwd": "C:\\Users\\Богдан\\Documents\\GitHub\\course-javascript",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "--require",
+      "C:\\Program Files\\JetBrains\\PhpStorm 2020.2.1\\plugins\\JavaScriptLanguage\\helpers\\jest-intellij\\lib\\jest-intellij-stdin-fix.js",
+      "C:\\Users\\Богдан\\Documents\\GitHub\\course-javascript\\node_modules\\jest\\bin\\jest.js",
+      "--colors",
+      "--reporters",
+      "C:\\Program Files\\JetBrains\\PhpStorm 2020.2.1\\plugins\\JavaScriptLanguage\\helpers\\jest-intellij\\lib\\jest-intellij-reporter.js",
+      "--verbose",
+      "--testNamePattern=^ДЗ 3 - объекты и массивы ",
+      "--runTestsByPath",
+      "C:/Users/Богдан/Documents/GitHub/course-javascript/projects/homework_2/index.spec.js"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18363",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 8406062,
+        "nice": 0,
+        "sys": 3839171,
+        "idle": 67605265,
+        "irq": 829687
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 12066390,
+        "nice": 0,
+        "sys": 1406187,
+        "idle": 66377921,
+        "irq": 64421
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 10856281,
+        "nice": 0,
+        "sys": 2032734,
+        "idle": 66961375,
+        "irq": 69687
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 12829640,
+        "nice": 0,
+        "sys": 1077500,
+        "idle": 65943250,
+        "irq": 55140
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 8517921,
+        "nice": 0,
+        "sys": 3114765,
+        "idle": 68217703,
+        "irq": 77812
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 10997296,
+        "nice": 0,
+        "sys": 2806046,
+        "idle": 66047046,
+        "irq": 89546
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 16309921,
+        "nice": 0,
+        "sys": 2108343,
+        "idle": 61432125,
+        "irq": 68984
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 18687890,
+        "nice": 0,
+        "sys": 1240390,
+        "idle": 59922109,
+        "irq": 52125
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 17937593,
+        "nice": 0,
+        "sys": 2512781,
+        "idle": 59400015,
+        "irq": 147000
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 16507859,
+        "nice": 0,
+        "sys": 2165890,
+        "idle": 61176625,
+        "irq": 59046
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 18100218,
+        "nice": 0,
+        "sys": 2568421,
+        "idle": 59181750,
+        "irq": 91593
+      },
+      {
+        "model": "AMD Ryzen 5 3600 6-Core Processor              ",
+        "speed": 3593,
+        "user": 18283437,
+        "nice": 0,
+        "sys": 2674140,
+        "idle": 58892812,
+        "irq": 177078
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "b4:2e:99:96:f8:47",
+        "address": "fd01::e1af:c161:d165:6197",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "b4:2e:99:96:f8:47",
+        "address": "fd01::ccb3:58a6:3f30:cf58",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "b4:2e:99:96:f8:47",
+        "address": "fe80::e1af:c161:d165:6197",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 6
+      },
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "b4:2e:99:96:f8:47",
+        "address": "192.168.0.70",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-AOJHU6G"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff7040219f9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff704025e1c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff704024dd8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff7041234cb",
+      "symbol": "v8::base::CPU::has_sse+38363"
+    },
+    {
+      "pc": "0x00007ff704939f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff704922021",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff7047ee57c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff7047f97d0",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff7047f62f4",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff7047ebb13",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff7047ea184",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2452"
+    },
+    {
+      "pc": "0x00007ff70480b36d",
+      "symbol": "v8::internal::Factory::NewFillerObject+61"
+    },
+    {
+      "pc": "0x00007ff704570c51",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+1665"
+    },
+    {
+      "pc": "0x00007ff704d84ddd",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+546637"
+    },
+    {
+      "pc": "0x000002b97cafad1f",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2151608320,
+    "totalCommittedMemory": 2151608320,
+    "usedMemory": 2145643112,
+    "availableMemory": 48707600,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1047456,
+        "used": 211384,
+        "available": 836072
+      },
+      "old_space": {
+        "memorySize": 1668431872,
+        "committedMemory": 1668431872,
+        "capacity": 1666448976,
+        "used": 1665831880,
+        "available": 617096
+      },
+      "code_space": {
+        "memorySize": 692224,
+        "committedMemory": 692224,
+        "capacity": 434208,
+        "used": 434208,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2625536,
+        "committedMemory": 2625536,
+        "capacity": 1698640,
+        "used": 1698640,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 477450240,
+        "committedMemory": 477450240,
+        "capacity": 477431408,
+        "used": 477431408,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 2784,
+        "used": 2784,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047456,
+        "used": 0,
+        "available": 1047456
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 76.734,
+    "kernelCpuSeconds": 3.062,
+    "cpuConsumptionPercent": 209.989,
+    "maxRss": 2396102656,
+    "pageFaults": {
+      "IORequired": 1486390,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 4420,
+      "writes": 145
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "AMDRMPATH": "C:\\Program Files\\AMD\\RyzenMaster\\",
+    "APPDATA": "C:\\Users\\Богдан\\AppData\\Roaming",
+    "COLORTERM": "true",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-AOJHU6G",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "DEBUG_COLORS": "true",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "FORCE_COLOR": "true",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Богдан",
+    "IDEA_INITIAL_DIRECTORY": "C:\\Users\\Богдан\\Documents\\GitHub",
+    "JEST_WORKER_ID": "1",
+    "LOCALAPPDATA": "C:\\Users\\Богдан\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-AOJHU6G",
+    "MOCHA_COLORS": "1",
+    "NODE_ENV": "test",
+    "npm_config_color": "always",
+    "NUMBER_OF_PROCESSORS": "12",
+    "OneDrive": "C:\\Users\\Богдан\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Богдан\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Богдан\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Богдан\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Богдан\\AppData\\Roaming\\npm",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "PROCESSOR_LEVEL": "23",
+    "PROCESSOR_REVISION": "7100",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\9234~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\9234~1\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-AOJHU6G",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-AOJHU6G",
+    "USERNAME": "Богдан",
+    "USERPROFILE": "C:\\Users\\Богдан",
+    "windir": "C:\\Windows"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\System32\\UMPDC.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll"
+  ]
+}
