@@ -52,7 +52,7 @@ function findAllPSiblings(where) {
   const arrayOfP = [];
 
   for (const item of where.children) {
-    if (item.nextElementSibling && item.nextElementSibling.tagName === 'P') {
+    if (item?.nextElementSibling?.tagName === 'P') {
       arrayOfP.push(item);
     }
   }
