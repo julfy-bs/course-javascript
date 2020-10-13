@@ -33,7 +33,7 @@ import './cookie.html';
    const newDiv = document.createElement('div');
    homeworkContainer.appendChild(newDiv);
  */
-const homeworkContainer = document.querySelector('#homework-container');
+const homeworkContainer = document.querySelector('#app');
 // текстовое поле для фильтрации cookie
 const filterNameInput = homeworkContainer.querySelector('#filter-name-input');
 // текстовое поле с именем cookie
@@ -83,8 +83,9 @@ addButton.addEventListener('click', () => {
 
 listTable.addEventListener('click', (e) => {
   const { role, cookieName } = e.target.dataset;
+  const DATA_ROLE = 'remove-cookie';
 
-  if (role === 'remove-cookie') {
+  if (role === DATA_ROLE) {
     cookiesMap.delete(cookieName);
     document.cookie = `${cookieName}=deleted; max-age=0`;
     updateTable();

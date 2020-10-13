@@ -29,7 +29,7 @@ let startY = 0;
 
 document.addEventListener('mousemove', (e) => {
   if (currentPosition) {
-    currentPosition.style.top = e.clientX - startX + 'px';
+    currentPosition.style.left = e.clientX - startX + 'px';
     currentPosition.style.top = e.clientY - startY + 'px';
   }
 });
