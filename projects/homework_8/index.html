@@ -1,0 +1,60 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+
+</style>
+<body>
+<div class="pop-up">
+  <div class="header">
+    <div class="header__left">
+      <h2 class="address">Адрес:</h2>
+    </div>
+    <div class="header__right">
+      <div class="close-icon"></div>
+    </div>
+  </div>
+  <h3> История отзывов</h3>
+  <div class="review-list"></div>
+  <hr>
+  <div class="form" data-role="review-form">
+    <h3 class="review-title">Отзыв:</h3>
+    <div class="field">
+      <input data-role="review-name" type="text" placeholder="Укажите ваше имя">
+    </div>
+    <div class="field">
+      <input data-role="review-place" type="text" placeholder="Укажите место">
+    </div>
+    <div class="field">
+      <textarea data-role="review-text" placeholder="Оставьте отзыв" rows="5"></textarea>
+    </div>
+
+    <button data-role="review-add">Добавить</button>
+    <span class="form-error"></span>
+  </div>
+</div>
+<div id="map"></div>
+
+<script type="template" id="addFormTemplate">
+  <div class="header"></div>
+  <h2 class="address">Адрес:</h2>
+  <h3> История отзывов</h3>
+  <div class="review-list"></div>
+  <hr>
+  <div class="form" data-role="review-form">
+    <h3 class="review-title">Отзыв:</h3>
+    <div class="field">
+      <input data-role="review-name" type="text" placeholder="Укажите ваше имя">
+    </div>
+    <div class="field">
+      <input data-role="review-place" type="text" placeholder="Укажите место">
+    </div>
+    <div class="field">
+      <textarea data-role="review-text" placeholder="Оставьте отзыв" rows="5"></textarea>
+    </div>
+
+    <button data-role="review-add">Добавить</button>
+    <span class="form-error"></span>
+  </div>
+</script>
+</body>
