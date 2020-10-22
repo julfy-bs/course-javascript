@@ -1,21 +1,21 @@
 {
   "proxy": {
-    "/geo-review-3/list": {
+    "/homework_8/list": {
       "target": "http://localhost:8181",
       "pathRewrite": {
-        "^/geo-review-3": ""
+        "^/homework_8": ""
       }
     },
-    "/geo-review-3/add": {
+    "/homework_8/add": {
       "target": "http://localhost:8181",
       "pathRewrite": {
-        "^/geo-review-3": ""
+        "^/homework_8": ""
       }
     },
-    "/geo-review-3/coords": {
+    "/homework_8/coords": {
       "target": "http://localhost:8181",
       "pathRewrite": {
-        "^/geo-review-3": ""
+        "^/homework_8": ""
       }
     }
   }

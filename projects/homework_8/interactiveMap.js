@@ -42,6 +42,30 @@ export default class InteractiveMap {
     });
     this.map.events.add('click', (e) => this.onClick(e.get('coords')));
     this.map.geoObjects.add(this.clusterer);
+    /*this.map.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+      '<div class="popover top">' +
+        '<a class="close" href="#">&times;</a>' +
+        '<div class="arrow"></div>' +
+        '<div class="popover-inner">' +
+        '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
+        '</div>' +
+        '</div>'
+    );*/
+  }
+
+  getStreetNameWithClick(coords) {
+    return new Promise((resolve, reject) => {
+      ymaps
+        .geocode(coords)
+        .then((res) =>
+          resolve(
+            res.geoObjects.get(0)
+              ? res.geoObjects.get(0).getAddressLine()
+              : 'Не удалось определить адрес.'
+          )
+        )
+        .catch((e) => reject(e));
+    });
   }
 
   openBalloon(coords, content) {
@@ -54,5 +78,14 @@ export default class InteractiveMap {
 
   closeBalloon() {
     this.map.balloon.close();
+  }
+
+  createPlacemark(coords) {
+    const placemark = new ymaps.Placemark(coords);
+    placemark.events.add('click', (e) => {
+      const coords = e.get('target').geometry.getCoordinates();
+      this.onClick(coords);
+    });
+    this.clusterer.add(placemark);
   }
 }
