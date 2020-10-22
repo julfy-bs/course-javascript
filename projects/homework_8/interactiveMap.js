@@ -39,7 +39,11 @@ export default class InteractiveMap {
     this.map = new ymaps.Map(this.mapId, {
       center: [55.76, 37.64],
       zoom: 10,
+      controls: [],
     });
+    this.map.controls.add('zoomControl');
+    this.map.controls.add('searchControl');
+    this.map.behaviors.disable(['dblClickZoom']);
     this.map.events.add('click', (e) => this.onClick(e.get('coords')));
     this.map.geoObjects.add(this.clusterer);
     /*this.map.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
@@ -68,7 +72,7 @@ export default class InteractiveMap {
     });
   }
 
-  openBalloon(coords, content) {
+  async openBalloon(coords, content) {
     this.map.balloon.open(coords, content);
   }
 
@@ -81,7 +85,17 @@ export default class InteractiveMap {
   }
 
   createPlacemark(coords) {
-    const placemark = new ymaps.Placemark(coords);
+    const placemark = new ymaps.Placemark(coords, {
+      // Опции.
+      // Своё изображение иконки метки.
+      iconImageHref:
+        'https://static.tildacdn.com/tild3061-3235-4537-b066-616662373363/Group_783.svg',
+      // Размеры метки.
+      iconImageSize: [44, 66],
+      // Смещение левого верхнего угла иконки относительно
+      // её "ножки" (точки привязки).
+      iconImageOffset: [-3, -33],
+    });
     placemark.events.add('click', (e) => {
       const coords = e.get('target').geometry.getCoordinates();
       this.onClick(coords);

@@ -19,10 +19,6 @@ export default class GeoReview {
     document.body.addEventListener('click', this.onDocumentClick.bind(this));
   }
 
-  address(coords) {
-    return this.map.getStreetNameWithClick(coords);
-  }
-
   async callApi(method, body = {}) {
     const res = await fetch(`/homework_8/${method}`, {
       method: 'post',
@@ -31,17 +27,16 @@ export default class GeoReview {
     return await res.json();
   }
 
+  async insertAddress(coords, addressField) {
+    return (addressField.textContent = await this.map.getStreetNameWithClick(coords));
+  }
+
   createForm(coords, reviews) {
     const root = document.createElement('div');
     root.innerHTML = this.formTemplate;
     const reviewList = root.querySelector('.reviews__list');
     const reviewForm = root.querySelector('[data-role=review-form]');
-    // const addressField = document.querySelector('[data-role=click-address]');
-    // addressField.setContent(this.address())
     reviewForm.dataset.coords = JSON.stringify(coords);
-
-    // const addressTemplate = root.querySelector('[data-role=click-address]');
-    // addressTemplate.setContent(objectInfo);
 
     for (const item of reviews) {
       const li = document.createElement('li');
@@ -61,10 +56,12 @@ export default class GeoReview {
   }
 
   async onClick(coords) {
-    this.map.openBalloon(coords, 'Загрузка...');
+    await this.map.openBalloon(coords, 'Загрузка...');
     const list = await this.callApi('list', { coords });
     const form = this.createForm(coords, list);
     this.map.setBalloonContent(form.innerHTML);
+    const addressField = document.querySelector('[data-role=click-address]');
+    await this.insertAddress(coords, addressField);
   }
 
   getTodayDate() {
