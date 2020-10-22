@@ -5,6 +5,26 @@
     /*filter: grayscale(100%);*/
   }
 
+  .clusterIcon {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .clusterIcon::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    background-image: linear-gradient(to top, #ff7249 0%, #ff9e63 100%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%
@@ -581,7 +601,9 @@
     text-align: left
   }
 </style>
-
+<!--<head>-->
+<!--  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap" rel="stylesheet">-->
+<!--</head>-->
 <div id="map"></div>
 
 <script type="template" id="addFormTemplate">

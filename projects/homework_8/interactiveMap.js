@@ -28,6 +28,7 @@ export default class InteractiveMap {
 
   initMap() {
     this.clusterer = new ymaps.Clusterer({
+      preset: 'islands#invertedDarkOrangeClusterIcons',
       groupByCoordinates: true,
       clusterDisableClickZoom: true,
       clusterOpenBalloonOnClick: false,
@@ -46,15 +47,27 @@ export default class InteractiveMap {
     this.map.behaviors.disable(['dblClickZoom']);
     this.map.events.add('click', (e) => this.onClick(e.get('coords')));
     this.map.geoObjects.add(this.clusterer);
-    /*this.map.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+    this.map.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
       '<div class="popover top">' +
         '<a class="close" href="#">&times;</a>' +
         '<div class="arrow"></div>' +
         '<div class="popover-inner">' +
         '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
         '</div>' +
-        '</div>'
-    );*/
+        '</div>',
+      {
+        build: function () {
+          this.constructor.superclass.build.call(this);
+
+          this.popup = document.querySelector('.popover');
+          this.close = document.querySelector('.close');
+
+          this.applyElementOffset();
+
+          this.close.addEventListener('click', {});
+        },
+      }
+    );
   }
 
   getStreetNameWithClick(coords) {
@@ -85,17 +98,21 @@ export default class InteractiveMap {
   }
 
   createPlacemark(coords) {
-    const placemark = new ymaps.Placemark(coords, {
-      // Опции.
-      // Своё изображение иконки метки.
-      iconImageHref:
-        'https://static.tildacdn.com/tild3061-3235-4537-b066-616662373363/Group_783.svg',
-      // Размеры метки.
-      iconImageSize: [44, 66],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
-      iconImageOffset: [-3, -33],
-    });
+    const placemark = new ymaps.Placemark(
+      coords,
+      {
+        // Свойства.
+        // Содержимое иконки, балуна и хинта.
+        iconContent: '1',
+        balloonContent: 'Балун',
+        hintContent: 'Стандартный значок метки',
+      },
+      {
+        // Опции.
+        // Стандартная фиолетовая иконка.
+        preset: 'islands#darkOrangeDotIcon',
+      }
+    );
     placemark.events.add('click', (e) => {
       const coords = e.get('target').geometry.getCoordinates();
       this.onClick(coords);
