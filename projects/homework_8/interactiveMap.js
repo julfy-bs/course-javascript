@@ -47,23 +47,26 @@ export default class InteractiveMap {
     this.map.behaviors.disable(['dblClickZoom']);
     this.map.events.add('click', (e) => this.onClick(e.get('coords')));
     this.map.geoObjects.add(this.clusterer);
-    this.map.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-      '<div class="popover top">' +
-        '<a class="close" href="#">&times;</a>' +
-        '<div class="arrow"></div>' +
-        '<div class="popover-inner">' +
-        '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
-        '</div>' +
-        '</div>',
+    this.MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+      `<div class="pop-up">
+        <div class="header">
+          <div class="header__left">
+            <div class="map-marker map-marker--before-heading"></div>
+            <div class="address" data-role="click-address"></div>
+          </div>
+          <div class="header__right">
+            <div class="close-icon"></div>
+          </div>
+        </div>
+        <div class="main">
+          $[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=550]]
+        </div>
+      </div>`,
       {
         build: function () {
-          this.constructor.superclass.build.call(this);
-
-          this.popup = document.querySelector('.popover');
-          this.close = document.querySelector('.close');
-
-          this.applyElementOffset();
-
+          this.map.constructor.superclass.build.call(this);
+          this.popup = document.querySelector('.pop-up');
+          this.close = document.querySelector('.close-icon');
           this.close.addEventListener('click', {});
         },
       }
@@ -101,16 +104,11 @@ export default class InteractiveMap {
     const placemark = new ymaps.Placemark(
       coords,
       {
-        // Свойства.
-        // Содержимое иконки, балуна и хинта.
-        iconContent: '1',
-        balloonContent: 'Балун',
-        hintContent: 'Стандартный значок метки',
+        hintContent: 'Метка "Geo-review"',
       },
       {
-        // Опции.
-        // Стандартная фиолетовая иконка.
         preset: 'islands#darkOrangeDotIcon',
+        balloonLayout: this.MyBalloonLayout,
       }
     );
     placemark.events.add('click', (e) => {
