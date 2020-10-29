@@ -1,0 +1,538 @@
+<style>
+  @import url(https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700);
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #app, #main {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: #09101a;
+  }
+
+  #app {
+    display: flex;
+    justify-content: center;
+  }
+
+  #main {
+    display: flex;
+  }
+
+  .left-side {
+    flex-grow: 1;
+    max-width: 320px;
+    width: 100%;
+    color: #FEFEFD;
+    padding: 10px 20px;
+    border: 1px solid #101921;
+    background-color: #17212b;
+  }
+
+  .left-side__wrapper {
+    max-width: 300px;
+    height: auto;
+    width: 100%;
+  }
+
+  .left-side__header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 35px;
+  }
+
+  .burger-menu__wrapper {
+    cursor: pointer;
+    width: 18px;
+    height: 20px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .burger-menu__wrapper:hover .burger-menu {
+    background-color: #ffffff;
+  }
+
+  .burger-menu__wrapper:hover .burger-menu:before {
+    background-color: #ffffff;
+  }
+
+  .burger-menu__wrapper:hover .burger-menu:after {
+    background-color: #ffffff;
+  }
+
+  .burger-menu {
+    width: 18px;
+    height: 2px;
+    background-color: #6c7883;
+    position: relative;
+  }
+
+  .burger-menu:before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    width: 18px;
+    height: 2px;
+    background-color: #6c7883;
+  }
+
+  .burger-menu:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    width: 18px;
+    height: 2px;
+    background-color: #6c7883;
+  }
+
+  .search-input {
+    width: 240px;
+    height: 35px;
+    background-color: #242f3d;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #e5e5e5;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .search-input::placeholder {
+    color: #6d7883;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border: 1px solid #5288c1;
+  }
+
+  .user-info {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .user-photo, .message-item-photo {
+    margin-right: 15px;
+    background: url(/projects/mega-chat-3/no-photo.png);
+    background-size: cover;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-list {
+  }
+
+  .user-list-item {
+    display: flex;
+    padding: 10px 0;
+  }
+
+  .user-list-item__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .user-list-item__left {
+    margin-right: 15px;
+  }
+
+  .user-list-item__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url(/projects/mega-chat-3/no-photo.png);
+    background-size: cover;
+  }
+
+  .user-list-item__right {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .user-list-item__header {
+
+  }
+
+  .user-list-item__header-top {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .user-list-item__header-top-surname {
+    margin-right: 5px;
+    text-transform: capitalize;
+  }
+
+  .user-list-item__header-top-name{
+    text-transform: capitalize;
+
+  }
+
+  .user-list-item__header-bottom {
+    color: #7f91a4;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .user-list-item__header-bottom-nickname {
+
+  }
+
+  .user-list-item__content {
+    color: #7f91a4;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .right-side {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  .right-side-header {
+    width: 100%;
+    min-height: 70px;
+    max-height: 100px;
+    border: 1px solid #101921;
+    background-color: #17212b;
+  }
+
+  .messages-container {
+    flex-grow: 1;
+    overflow: scroll;
+  }
+
+  .input-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .message-input {
+    height: 30px;
+    flex-grow: 1;
+    margin: 0 10px 0 0;
+  }
+
+  .send-button {
+    height: 25px;
+  }
+
+  #login {
+    position: absolute;
+    top: 20vh;
+    background-color: #17212b;
+    box-shadow: 0 0 10px #17212b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 110px;
+  }
+
+  .login-image {
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    background-color: #242f3d;
+    position: relative;
+    margin-bottom: 35px;
+  }
+
+  .login-image__item {
+    width: 85px;
+    height: 66px;
+    position: absolute;
+    top: 28%;
+    left: 20%;
+    background-image: url(/projects/mega-chat-3/images/login.png);
+  }
+
+  .login-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    max-height: 80px;
+    margin-bottom: 40px;
+  }
+
+  .login-text__title {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .login-text__description {
+    color: #7f91a4;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .login-field {
+    margin: 15px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-field input {
+    height: 30px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #465362;
+    color: #e5e5e5;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    padding: 5px 10px;
+  }
+
+  .login-field input::placeholder {
+    color: #858e97;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .login-field input:focus {
+    outline: none;
+    border-color: #5288c1;
+  }
+
+  .login-field button {
+    width: 135px;
+    height: 45px;
+    background-color: #5288c1;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .login-field button:focus {
+    outline: none;
+    border: 2px solid #ffffff;
+  }
+
+  .login-error {
+    color: red;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .message-item {
+    display: flex;
+    color: #ffffff;
+  }
+
+  .message-item-system {
+    font-size: 14px;
+    color: gray;
+  }
+
+  .message-item ~ .message-item {
+    margin-top: 15px;
+  }
+
+  .message-item-right {
+    flex-grow: 1;
+  }
+
+  .message-item-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .message-item-header-surname {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .message-item-header-name {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    font-weight: bold;
+    margin-right: 15px;
+  }
+
+  .message-item-header-nickname {
+    color: #7f91a4;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    margin-right: 15px;
+  }
+
+  .message-item-header-time {
+    color: #7a8c9e;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+</style>
+<div id="app">
+    <div id="login" class="hidden">
+        <div class="login-image">
+            <div class="login-image__item"></div>
+        </div>
+        <div class="login-text">
+            <h1 class="login-text__title">Авторизация</h1>
+            <div class="login-text__description">Введите пожалуйста своё фио и ник для дальнейшей авторизации</div>
+        </div>
+        <div class="login-field">
+            <input type="text" class="login-surname-input" data-role="login-surname-input" placeholder="Введите фамилию">
+        </div>
+        <div class="login-field">
+            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите имя">
+        </div>
+        <div class="login-field">
+            <input type="text" class="login-nickname-input" data-role="login-nickname-input" placeholder="Введите никнейм">
+        </div>
+        <div class="login-field">
+            <button class="login-submit" data-role="login-submit">Войти</button>
+        </div>
+        <div class="login-error" data-role="login-error"></div>
+    </div>
+
+    <div id="main" class="hidden">
+        <div class="left-side">
+            <div class="left-side__wrapper">
+                <div class="left-side__header">
+                    <div class="burger-menu__wrapper">
+                        <div class="burger-menu"></div>
+                    </div>
+                    <input type="text" class="search-input" data-role="search-input" placeholder="Найти...">
+                </div>
+                <div class="user-info">
+                    <div class="user-photo" data-role="user-photo"></div>
+                    <div class="user-name" data-role="user-name"></div>
+                </div>
+
+                <div class="user-list-container">
+                    <div class="user-list" data-role="user-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="right-side-header" data-role="right-side-header"></div>
+            <div class="messages-container" data-role="messages-list"></div>
+            <div class="input-container" data-role="message-sender">
+                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                <button class="send-button" data-role="message-send-button">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="hidden">
+
+    </div>
+</div>
