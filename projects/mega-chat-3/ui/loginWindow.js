@@ -14,11 +14,15 @@ export default class LoginWindow {
       const surname = loginSurnameInput.value.trim();
       const name = loginNameInput.value.trim();
       const nickname = loginNicknameInput.value.trim();
-      const userNicknameData = [];
-      userNicknameData.push(surname);
-      userNicknameData.push(name);
-      userNicknameData.push(`@${nickname}`);
-      const l = userNicknameData.join(' ');
+      const userNicknameData = {
+        surname: surname,
+        name: name,
+        nickname: nickname,
+      };
+      // userNicknameData.push(surname);
+      // userNicknameData.push(name);
+      // userNicknameData.push(`@${nickname}`);
+      // const array = userNicknameData.join(' ');
       if (!surname) {
         loginError.textContent = 'Введите фамилию';
       } else if (!name) {
@@ -26,7 +30,8 @@ export default class LoginWindow {
       } else if (!nickname) {
         loginError.textContent = 'Введите никнейм';
       } else {
-        this.onLogin(l);
+        this.onLogin(userNicknameData);
+        console.log(userNicknameData);
       }
     });
   }

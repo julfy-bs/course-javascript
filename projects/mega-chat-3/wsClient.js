@@ -10,6 +10,7 @@ export default class WSClient {
       this.socket.addEventListener('open', resolve);
       this.socket.addEventListener('message', (e) => {
         this.onMessage(JSON.parse(e.data));
+        console.log(e.data);
       });
     });
   }

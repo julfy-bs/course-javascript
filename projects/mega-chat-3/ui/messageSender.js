@@ -11,6 +11,16 @@ export default class MessageSender {
         this.onSend(message);
       }
     });
+
+    this.messageInput.addEventListener('keydown', (event) => {
+      if (event.keyCode === 13) {
+        const message = this.messageInput.value.trim();
+
+        if (message) {
+          this.onSend(message);
+        }
+      }
+    });
   }
 
   clear() {

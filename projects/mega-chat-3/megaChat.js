@@ -5,6 +5,7 @@ import UserList from './ui/userList';
 import UserPhoto from './ui/userPhoto';
 import MessageList from './ui/messageList';
 import MessageSender from './ui/messageSender';
+import PopupOpener from './ui/popupOpener';
 import WSClient from './wsClient';
 
 export default class MegaChat {
@@ -31,6 +32,7 @@ export default class MegaChat {
         document.querySelector('[data-role=user-photo]'),
         this.onUpload.bind(this)
       ),
+      popupOpener: new PopupOpener(document.querySelector('[data-role=popup]')),
     };
 
     this.ui.loginWindow.show();
@@ -59,22 +61,33 @@ export default class MegaChat {
     this.ui.loginWindow.hide();
     this.ui.mainWindow.show();
     this.ui.userName.set(name);
-    this.ui.userPhoto.set(`/mega-chat-3/photos/${name}.png?t=${Date.now()}`);
+    this.ui.userPhoto.set(`/mega-chat-3/photos/${name.nickname}.png?t=${Date.now()}`);
   }
 
   onMessage({ type, from, data }) {
     console.log(type, from, data);
+    console.log(data);
+    console.log(from);
+    // if (!Array.isArray(data)) {
+    //   const array = Object.entries(data);
+    //   this.ui.userList.chatUsers(array);
+    //   console.log('не массив');
+    // } else {
+    //   this.ui.userList.chatUsers(data);
+    //   console.log('массив');
+    // }
+    // this.ui.userList.chatUsers(data);
 
     if (type === 'hello') {
       this.ui.userList.add(from);
-      this.ui.messageList.addSystemMessage(`${from} вошел в чат`);
+      this.ui.messageList.addSystemMessage(`${from.surname} ${from.name} вошел в чат`);
     } else if (type === 'user-list') {
       for (const item of data) {
         this.ui.userList.add(item);
       }
     } else if (type === 'bye-bye') {
       this.ui.userList.remove(from);
-      this.ui.messageList.addSystemMessage(`${from} вышел из чата`);
+      this.ui.messageList.addSystemMessage(`${from.surname} ${from.name} вышел из чата`);
     } else if (type === 'text-message') {
       this.ui.messageList.add(from, data.message);
     } else if (type === 'photo-changed') {

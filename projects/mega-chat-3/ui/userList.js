@@ -9,11 +9,10 @@ export default class UserList {
 
     this.element.innerHTML = '';
 
-    for (const name of this.items) {
-      const arrayUserInfo = name.split(' ');
-      const userSurname = arrayUserInfo[0];
-      const userName = arrayUserInfo[1];
-      const userNickname = arrayUserInfo[2];
+    for (const item of this.items) {
+      const userSurname = item.surname;
+      const userName = item.name;
+      const userNickname = item.nickname;
       const element = document.createElement('div');
       const wrapper = document.createElement('div');
       const left = document.createElement('div');
@@ -30,6 +29,12 @@ export default class UserList {
       wrapper.classList.add('user-list-item__wrapper');
       left.classList.add('user-list-item__left');
       image.classList.add('user-list-item__image');
+      image.dataset.role = 'user-avatar';
+      image.dataset.user = `${userNickname}`;
+      // const userPhoto = document.querySelector('.user-photo');
+      // userPhoto.dataset.role = 'user-avatar';
+      // userPhoto.dataset.user = `${userNickname}`;
+      image.style.backgroundImage = `url(/mega-chat-3/photos/${userNickname}.png?t=${Date.now()})`;
       right.classList.add('user-list-item__right');
       header.classList.add('user-list-item__header');
       headerTop.classList.add('user-list-item__header-top');
@@ -41,7 +46,6 @@ export default class UserList {
       userSurnamePlaceholder.textContent = userSurname;
       userNamePlaceholder.textContent = userName;
       userNicknamePlaceholder.textContent = userNickname;
-
       fragment.append(element);
       element.append(wrapper);
       wrapper.append(left);
@@ -67,5 +71,23 @@ export default class UserList {
   remove(name) {
     this.items.delete(name);
     this.buildDOM();
+  }
+
+  chatUsers(name) {
+    console.log(name);
+    const quantityUsers = document.querySelector('.right-side-header-bottom-number');
+
+    if (!Array.isArray(name)) {
+      const array = Object.values(name);
+      const arrayUserInfoLength = array.length;
+      console.log('не массив');
+      console.log(array);
+      quantityUsers.textContent = arrayUserInfoLength;
+    } else {
+      const arrayUserInfoLength = name.length;
+      console.log('массив');
+      console.log(arrayUserInfoLength);
+      quantityUsers.textContent = arrayUserInfoLength;
+    }
   }
 }

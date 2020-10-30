@@ -23,6 +23,57 @@
 
   #main {
     display: flex;
+    position: relative;
+  }
+
+  .disable  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 220px;
+    opacity: 0;
+    background-color: #17212b;
+    display: none;
+  }
+
+
+  .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    border-right: 1px solid #101921;
+    border-bottom: 2px solid #101921;
+    background-color: #17212b;
+    width: 320px;
+    opacity: 1;
+    z-index: 10;
+    padding: 35px 30px;
+  }
+
+  .popup-close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  .popup-close-line-first {
+    width: 3px;
+    height: 30px;
+    transform: translateX(13px) rotate(45deg);
+    background-color: #737e87;
+
+  }
+
+  .popup-close-line-second {
+    width: 3px;
+    height: 30px;
+    transform: translateX(13px) translateY(-30px) rotate(-45deg);
+    background-color: #737e87;
   }
 
   .left-side {
@@ -136,21 +187,67 @@
   .user-info {
     margin-bottom: 20px;
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
+    width: 100%;
+    position: relative;
   }
 
-  .user-name {
-    font-size: 18px;
-    font-weight: bold;
+  .user-info-header {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 40px;
+    width: 100%;
   }
 
-  .user-photo, .message-item-photo {
+  .user-info-main {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  }
+
+  .user-photo {
     margin-right: 15px;
     background: url(/projects/mega-chat-3/no-photo.png);
     background-size: cover;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .user-info-main-right {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .user-name {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .user-status {
+    color: #51b3f3;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
   }
 
   .user-list {
@@ -205,7 +302,7 @@
     text-transform: capitalize;
   }
 
-  .user-list-item__header-top-name{
+  .user-list-item__header-top-name {
     text-transform: capitalize;
 
   }
@@ -250,27 +347,121 @@
     max-height: 100px;
     border: 1px solid #101921;
     background-color: #17212b;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 20px 30px;
+  }
+
+  .right-side-header-top {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .right-side-header-bottom {
+    color: #7f91a4;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
   }
 
   .messages-container {
     flex-grow: 1;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 35px 25px;
+    max-height: calc(100% - 170px);
+    width: 100%;
+  }
+
+  .messages-container::-webkit-scrollbar-thumb {
+    background-color: #5288c1;
+    border-radius: 8px;
+  }
+
+  .messages-container::-webkit-scrollbar {
+    background-color: #ddd;
+    border-radius: 8px;
+    width: 7px;
+    overflow: hidden;
   }
 
   .input-container {
+    width: 100%;
+    height: 70px;
+    border: 1px solid #101921;
+    background-color: #17212b;
     margin-top: 10px;
     display: flex;
     align-items: center;
+    padding: 20px;
   }
 
   .message-input {
-    height: 30px;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    color: #e5e5e5;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    height: 50px;
     flex-grow: 1;
-    margin: 0 10px 0 0;
+    margin: 0 20px 0 0;
+    border-radius: 5px;
+    border: 2px solid transparent;
+  }
+
+  .message-input::placeholder {
+    color: #858e97;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .message-input:focus {
+    outline: none;
+    border: 2px solid #ffffff;
   }
 
   .send-button {
-    height: 25px;
+    width: 135px;
+    height: 45px;
+    background-color: #5288c1;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .send-button:focus {
+    outline: none;
+    border: 2px solid #ffffff;
   }
 
   #login {
@@ -410,25 +601,57 @@
 
   .message-item {
     display: flex;
-    color: #ffffff;
+    max-width: 50%;
   }
 
   .message-item-system {
-    font-size: 14px;
     color: gray;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
   }
 
   .message-item ~ .message-item {
     margin-top: 15px;
   }
 
+  .message-item-left {
+
+  }
+
+  .message-item-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: url(/projects/mega-chat-3/no-photo.png);
+    background-size: cover;
+  }
+
   .message-item-right {
     flex-grow: 1;
+    width: auto;
+    max-width: 100%;
+    min-height: 50px;
+    border-radius: 5px;
+    background-color: #182533;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .message-item-right-content {
+    max-width: 90%;
   }
 
   .message-item-header {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+    max-width: 100%;
   }
 
   .message-item-header-surname {
@@ -456,6 +679,9 @@
   }
 
   .message-item-header-nickname {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     color: #7f91a4;
     font-family: Ubuntu;
     font-size: 14px;
@@ -464,10 +690,12 @@
     letter-spacing: normal;
     line-height: 24px;
     text-align: left;
-    margin-right: 15px;
   }
 
   .message-item-header-time {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
     color: #7a8c9e;
     font-family: Ubuntu;
     font-size: 14px;
@@ -477,6 +705,23 @@
     line-height: 24px;
     text-align: left;
   }
+
+  .message-item-text {
+    color: #ffffff;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: left;
+    text-wrap: normal;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 100%;
+  }
+
+
 </style>
 <div id="app">
     <div id="login" class="hidden">
@@ -488,13 +733,15 @@
             <div class="login-text__description">Введите пожалуйста своё фио и ник для дальнейшей авторизации</div>
         </div>
         <div class="login-field">
-            <input type="text" class="login-surname-input" data-role="login-surname-input" placeholder="Введите фамилию">
+            <input type="text" class="login-surname-input" data-role="login-surname-input"
+                   placeholder="Введите фамилию">
         </div>
         <div class="login-field">
             <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите имя">
         </div>
         <div class="login-field">
-            <input type="text" class="login-nickname-input" data-role="login-nickname-input" placeholder="Введите никнейм">
+            <input type="text" class="login-nickname-input" data-role="login-nickname-input"
+                   placeholder="Введите никнейм">
         </div>
         <div class="login-field">
             <button class="login-submit" data-role="login-submit">Войти</button>
@@ -503,19 +750,32 @@
     </div>
 
     <div id="main" class="hidden">
+        <div id="popup" class="disable" data-role="popup">
+            <div class="user-info">
+                <div class="popup-close" data-role="popup-close">
+                    <div class="popup-close-line-first"></div>
+                    <div class="popup-close-line-second"></div>
+                </div>
+                <h2 class="user-info-header">Загрузка фото</h2>
+                <div class="user-info-main">
+                    <div class="user-info-main-left">
+                        <div class="user-photo" data-role="user-photo"></div>
+                    </div>
+                    <div class="user-info-main-right">
+                        <div class="user-name" data-role="user-name"></div>
+                        <div class="user-status" data-role="user-status">В сети</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="left-side">
             <div class="left-side__wrapper">
                 <div class="left-side__header">
-                    <div class="burger-menu__wrapper">
+                    <div class="burger-menu__wrapper" data-role="popup-open">
                         <div class="burger-menu"></div>
                     </div>
                     <input type="text" class="search-input" data-role="search-input" placeholder="Найти...">
                 </div>
-                <div class="user-info">
-                    <div class="user-photo" data-role="user-photo"></div>
-                    <div class="user-name" data-role="user-name"></div>
-                </div>
-
                 <div class="user-list-container">
                     <div class="user-list" data-role="user-list">
                     </div>
@@ -523,16 +783,17 @@
             </div>
         </div>
         <div class="right-side">
-            <div class="right-side-header" data-role="right-side-header"></div>
+            <div class="right-side-header" data-role="right-side-header">
+                <div class="right-side-header-top">Чат </div>
+                <div class="right-side-header-bottom" data-role="right-side-header-bottom"><span class="right-side-header-bottom-number">1</span> участник</div>
+            </div>
             <div class="messages-container" data-role="messages-list"></div>
             <div class="input-container" data-role="message-sender">
-                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
                 <button class="send-button" data-role="message-send-button">Отправить</button>
             </div>
         </div>
     </div>
 
-    <div id="popup" class="hidden">
 
-    </div>
 </div>

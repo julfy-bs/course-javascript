@@ -5,10 +5,10 @@ export default class UserName {
 
   set(name) {
     this.name = name;
-    this.element.textContent = name;
+    this.element.textContent = `${name.surname} ${name.name}`;
   }
 
   get() {
-    return this.name;
+    return this.name.nickname;
   }
 }
