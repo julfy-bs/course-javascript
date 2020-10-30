@@ -4,6 +4,7 @@ export default class MessageSender {
     this.messageInput = element.querySelector('[data-role=message-input]');
     this.messageSendButton = element.querySelector('[data-role=message-send-button]');
 
+    // Удаление лишних пробелов в input'е.
     this.messageSendButton.addEventListener('click', () => {
       const message = this.messageInput.value.trim();
 
@@ -12,6 +13,8 @@ export default class MessageSender {
       }
     });
 
+    // Добавление слушателя события на Input сообщения;
+    // 13 - enter;
     this.messageInput.addEventListener('keydown', (event) => {
       if (event.keyCode === 13) {
         const message = this.messageInput.value.trim();
@@ -23,6 +26,7 @@ export default class MessageSender {
     });
   }
 
+  // Очищение текстового поля Input'а;
   clear() {
     this.messageInput.value = '';
   }

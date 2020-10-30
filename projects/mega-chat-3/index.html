@@ -26,7 +26,7 @@
     position: relative;
   }
 
-  .disable  {
+  .disable {
     position: absolute;
     top: 0;
     left: 0;
@@ -261,6 +261,7 @@
   .user-list-item__wrapper {
     display: flex;
     flex-flow: row nowrap;
+    max-width: 100%;
   }
 
   .user-list-item__left {
@@ -294,7 +295,8 @@
     line-height: 24px;
     text-align: left;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+    max-width: 100%;
   }
 
   .user-list-item__header-top-surname {
@@ -724,76 +726,78 @@
 
 </style>
 <div id="app">
-    <div id="login" class="hidden">
-        <div class="login-image">
-            <div class="login-image__item"></div>
-        </div>
-        <div class="login-text">
-            <h1 class="login-text__title">Авторизация</h1>
-            <div class="login-text__description">Введите пожалуйста своё фио и ник для дальнейшей авторизации</div>
-        </div>
-        <div class="login-field">
-            <input type="text" class="login-surname-input" data-role="login-surname-input"
-                   placeholder="Введите фамилию">
-        </div>
-        <div class="login-field">
-            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите имя">
-        </div>
-        <div class="login-field">
-            <input type="text" class="login-nickname-input" data-role="login-nickname-input"
-                   placeholder="Введите никнейм">
-        </div>
-        <div class="login-field">
-            <button class="login-submit" data-role="login-submit">Войти</button>
-        </div>
-        <div class="login-error" data-role="login-error"></div>
+  <div id="login" class="hidden">
+    <div class="login-image">
+      <div class="login-image__item"></div>
     </div>
+    <div class="login-text">
+      <h1 class="login-text__title">Авторизация</h1>
+      <div class="login-text__description">Введите пожалуйста своё фио и ник для дальнейшей авторизации</div>
+    </div>
+    <div class="login-field">
+      <input type="text" class="login-surname-input" maxlength="11" data-role="login-surname-input"
+             placeholder="Введите фамилию">
+    </div>
+    <div class="login-field">
+      <input type="text" class="login-name-input" maxlength="11" data-role="login-name-input" placeholder="Введите имя">
+    </div>
+    <div class="login-field">
+      <input type="text" class="login-nickname-input" maxlength="10" data-role="login-nickname-input"
+             placeholder="Введите никнейм">
+    </div>
+    <div class="login-field">
+      <button class="login-submit" data-role="login-submit">Войти</button>
+    </div>
+    <div class="login-error" data-role="login-error"></div>
+  </div>
 
-    <div id="main" class="hidden">
-        <div id="popup" class="disable" data-role="popup">
-            <div class="user-info">
-                <div class="popup-close" data-role="popup-close">
-                    <div class="popup-close-line-first"></div>
-                    <div class="popup-close-line-second"></div>
-                </div>
-                <h2 class="user-info-header">Загрузка фото</h2>
-                <div class="user-info-main">
-                    <div class="user-info-main-left">
-                        <div class="user-photo" data-role="user-photo"></div>
-                    </div>
-                    <div class="user-info-main-right">
-                        <div class="user-name" data-role="user-name"></div>
-                        <div class="user-status" data-role="user-status">В сети</div>
-                    </div>
-                </div>
-            </div>
+  <div id="main" class="hidden">
+    <div id="popup" class="disable" data-role="popup">
+      <div class="user-info">
+        <div class="popup-close" data-role="popup-close">
+          <div class="popup-close-line-first"></div>
+          <div class="popup-close-line-second"></div>
         </div>
-        <div class="left-side">
-            <div class="left-side__wrapper">
-                <div class="left-side__header">
-                    <div class="burger-menu__wrapper" data-role="popup-open">
-                        <div class="burger-menu"></div>
-                    </div>
-                    <input type="text" class="search-input" data-role="search-input" placeholder="Найти...">
-                </div>
-                <div class="user-list-container">
-                    <div class="user-list" data-role="user-list">
-                    </div>
-                </div>
-            </div>
+        <h2 class="user-info-header">Загрузка фото</h2>
+        <div class="user-info-main">
+          <div class="user-info-main-left">
+            <div class="user-photo" data-role="user-photo"></div>
+          </div>
+          <div class="user-info-main-right">
+            <div class="user-name" data-role="user-name"></div>
+            <div class="user-status" data-role="user-status">В сети</div>
+          </div>
         </div>
-        <div class="right-side">
-            <div class="right-side-header" data-role="right-side-header">
-                <div class="right-side-header-top">Чат </div>
-                <div class="right-side-header-bottom" data-role="right-side-header-bottom"><span class="right-side-header-bottom-number">1</span> участник</div>
-            </div>
-            <div class="messages-container" data-role="messages-list"></div>
-            <div class="input-container" data-role="message-sender">
-                <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
-                <button class="send-button" data-role="message-send-button">Отправить</button>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="left-side">
+      <div class="left-side__wrapper">
+        <div class="left-side__header">
+          <div class="burger-menu__wrapper" data-role="popup-open">
+            <div class="burger-menu"></div>
+          </div>
+          <input type="text" class="search-input" data-role="search-input" placeholder="Найти...">
+        </div>
+        <div class="user-list-container">
+          <div class="user-list" data-role="user-list">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="right-side-header" data-role="right-side-header">
+        <div class="right-side-header-top">Чат</div>
+        <div class="right-side-header-bottom" data-role="right-side-header-bottom"><span
+                class="right-side-header-bottom-number">1</span> участник
+        </div>
+      </div>
+      <div class="messages-container" data-role="messages-list"></div>
+      <div class="input-container" data-role="message-sender">
+        <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
+        <button class="send-button" data-role="message-send-button">Отправить</button>
+      </div>
+    </div>
+  </div>
 
 
 </div>

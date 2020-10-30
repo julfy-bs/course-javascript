@@ -4,24 +4,19 @@ export default class MessageList {
   }
 
   add(from, text) {
+    // Отображение текущего времени в формате hh:mm
     const date = new Date();
     const hours = String(date.getHours()).padStart(2, 0);
     const minutes = String(date.getMinutes()).padStart(2, 0);
     const time = `${hours}:${minutes}`;
     const item = document.createElement('div');
-    // console.log(from);
-    // const arrayUserInfo = from.split(' ');
-    // const userSurname = arrayUserInfo[0];
-    // const userName = arrayUserInfo[1];
-    // const userNickname = arrayUserInfo[2];
 
+    // Присвоение переменным значения из объекта с данными, в котором хранится информация о текущем пользователе.
     const userSurname = from.surname;
     const userName = from.name;
     const userNickname = from.nickname;
-    console.log(userSurname);
-    console.log(userName);
-    console.log(userNickname);
 
+    // Создание html-структуры тела сообщений
     item.classList.add('message-item');
     item.innerHTML = `
     <div class="message-item-left">
@@ -42,10 +37,13 @@ export default class MessageList {
     </div>
     `;
 
+    // Добавление html-структуры тела сообщений в DOM-дерево;
+    // Добавление скролла вниз.
     this.element.append(item);
     this.element.scrollTop = this.element.scrollHeight;
   }
 
+  // Добавление
   addSystemMessage(message) {
     const item = document.createElement('div');
 

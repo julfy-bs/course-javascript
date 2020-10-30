@@ -65,18 +65,7 @@ export default class MegaChat {
   }
 
   onMessage({ type, from, data }) {
-    console.log(type, from, data);
-    console.log(data);
-    console.log(from);
-    // if (!Array.isArray(data)) {
-    //   const array = Object.entries(data);
-    //   this.ui.userList.chatUsers(array);
-    //   console.log('не массив');
-    // } else {
-    //   this.ui.userList.chatUsers(data);
-    //   console.log('массив');
-    // }
-    // this.ui.userList.chatUsers(data);
+    // console.log(type, from, data);
 
     if (type === 'hello') {
       this.ui.userList.add(from);
